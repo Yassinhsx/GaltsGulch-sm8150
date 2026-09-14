@@ -1,1 +1,19 @@
+name: Build Kernel
 
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Build Kernel Action
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/Yassinhsx/GaltsGulch-sm8150
+          kernel-branch: gulch_r
+          config: vendor/sm8150-perf_defconfig
+          arch: arm64
+          aosp-clang: true
+          aosp-clang-version: r383902
+          aosp-gcc: true
